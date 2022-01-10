@@ -13,7 +13,8 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh "git clone http://$GitHubUser_USR:$GitHubUser_PSW@https://github.com/8ball92/deploy_hello_world.git"
+                git branch: "${env.BRANCH}",
+                url: 'https://github.com/8ball92/deploy_hello_world.git'
                  
             }
         }
