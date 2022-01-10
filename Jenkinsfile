@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment {
 		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+        GitHubUser = credentials('github')
 	}
     stages {
         stage('Pull Image') {
@@ -12,9 +13,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                credentialsId: 'slave',
-                git branch: "${env.BRANCH}",
-                url: 'git@github.com:8ball92/deploy_hello_world.git'
+                bat "git clone http://$GitHubUser_USR:$GitHubUser_PSW@https://github.com/8ball92/deploy_hello_world.git"
                  
             }
         }
