@@ -7,7 +7,7 @@ pipeline {
         stage('Pull Image') {
             steps {
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-                sh "docker pull gblbjj/${env.APP}:${env.TAG_VERSION} ."   
+                sh "docker pull gblbjj/${env.APP}:${env.TAG_VERSION}"   
             }
         }
 
