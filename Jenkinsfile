@@ -12,8 +12,9 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+                credentialsId: 'slave',
                 git branch: "${env.BRANCH}",
-                url: 'https://github.com/8ball92/deploy_hello_world.git'
+                url: 'git@github.com:8ball92/deploy_hello_world.git'
                  
             }
         }
