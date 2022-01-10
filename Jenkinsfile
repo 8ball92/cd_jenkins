@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                bat "git clone http://$GitHubUser_USR:$GitHubUser_PSW@https://github.com/8ball92/deploy_hello_world.git"
+                sh "git clone http://$GitHubUser_USR:$GitHubUser_PSW@https://github.com/8ball92/deploy_hello_world.git"
                  
             }
         }
