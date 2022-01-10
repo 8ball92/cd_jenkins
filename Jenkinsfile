@@ -11,16 +11,7 @@ pipeline {
                 sh "docker pull gblbjj/${env.APP}:${env.TAG_VERSION}"   
             }
         }
-        stage('Deploy') {
-            steps {
-                git branch: "${env.BRANCH}",
-                    credentialsId: 'github',
-                    url: 'https://github.com/8ball92/deploy_hello_world.git'
-                sh "ls -la"    
-                 
-            }
-        }
-
+        
     }
     post {
         always {
