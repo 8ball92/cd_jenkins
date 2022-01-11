@@ -16,7 +16,7 @@ pipeline {
             steps {
                 git branch: "${env.BRANCH}",
                     url: 'https://github.com/8ball92/maven-hello-world.git'
-                    sh "cd my-app && mvn package " 
+                    sh  "ls -la" 
             }        
                      
         }
