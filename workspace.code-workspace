@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "../maven-hello-world"
+		},
+		{
+			"name": "cd_jenkins",
+			"path": "."
+		},
+		{
+			"name": "deploy_hello_world",
+			"path": "../deploy_hello_world"
+		},
+		{
+			"name": "ci_jenkins-1",
+			"path": "../ci_jenkins-1"
+		}
+	],
+	"settings": {}
+}
