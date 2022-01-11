@@ -12,10 +12,9 @@ pipeline {
             }
         }
         stage('Deploy') {
+            when { expression { return env.BRANCH == 'develop'} }
             steps {
-                git branch: "${env.BRANCH}",
-                credentialsId: 'github',
-                    url: 'https://github.com/8ball92/deploy_hello_world.git'
+                echo "deu-certo"
             }        
                      
         }
