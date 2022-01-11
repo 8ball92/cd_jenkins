@@ -16,11 +16,12 @@ pipeline {
             steps {
                 git branch: "${env.BRANCH}",
                     url: 'https://github.com/8ball92/maven-hello-world.git'
-                    sh  "ls -la" 
+                sh "sed 's /sua-imagem-aqui/gblbjj/${env.APP}:${env.TAG_VERSION}/g hello.yml"    
                 script {
                    def data = readFile(file: 'hello.yml')
-                   println(data)
-               }    
+                   println(hello.yml)
+               }
+                   
             }        
                      
         }
