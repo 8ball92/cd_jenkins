@@ -16,6 +16,7 @@ pipeline {
                 git branch: "${env.BRANCH}",
                 credentialsId: 'github',
                     url: 'https://github.com/8ball92/deploy_hello_world.git'
+            }        
                      
         }
     }
