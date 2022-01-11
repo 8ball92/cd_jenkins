@@ -15,11 +15,8 @@ pipeline {
             // when { expression { return env.BRANCH == 'develop'} }
             steps {
                 git branch: "${env.BRANCH}",
-                    url: 'https://github.com/8ball92/maven-hello-world.git'
-                    
-                script {
-                   def data = readFile(file: 'hello.yml')
-                   println(hello.yml)
+                    url: 'https://github.com/8ball92/ci_cd-stack.git'
+            
                }
                    
             }        
