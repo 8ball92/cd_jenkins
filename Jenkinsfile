@@ -16,7 +16,7 @@ pipeline {
             steps {
                 git branch: "${env.BRANCH}",
                     url: 'https://github.com/8ball92/maven-hello-world.git'
-                sh "sed 's /sua-imagem-aqui/gblbjj/${env.APP}:${env.TAG_VERSION}/g hello.yml"    
+                sh "cat hello.yml"    
                    
             }        
                      
