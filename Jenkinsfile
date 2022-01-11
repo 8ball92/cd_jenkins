@@ -17,7 +17,7 @@ pipeline {
                 git branch: "${env.BRANCH}",
                     url: 'https://github.com/8ball92/ci_cd-stack.git'
             
-               }
+               
                    
             }        
                      
