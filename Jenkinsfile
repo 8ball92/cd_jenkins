@@ -15,7 +15,7 @@ pipeline {
             // when { expression { return env.BRANCH == 'develop'} }
             steps {
                 git branch: "${env.BRANCH}",
-                    url: 'https://github.com/8ball92/maven-hello-world.git'
+                    url: 'https://github.com/8ball92/deploy_hello_world.git'
                     sh  "ls -la" 
             }        
                      
