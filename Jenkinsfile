@@ -14,7 +14,13 @@ pipeline {
         stage('Deploy') {
             // when { expression { return env.BRANCH == 'develop'} }
             steps {
-                sh  "ls -la" 
+                git branch: "${env.BRANCH}",
+                    url: 'https://github.com/8ball92/maven-hello-world.git'
+                    sh  "ls -la" 
+                script {
+                   def data = readFile(file: 'hello.yml')
+                   println(data)
+               }    
             }        
                      
         }
