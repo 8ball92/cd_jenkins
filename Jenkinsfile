@@ -23,7 +23,9 @@ pipeline {
             steps{
                 sh  "sed -i 's/deploy/${env.APP}:${env.TAG_VERSION}/g' hello.yml"
                 sh  "cat hello.yml"
-                sh  'docker stack deploy -c hello.yml mvn'   
+                sh  'docker stack deploy -c hello.yml mvn'  
+                sh "docker rmi gblbjj/${env.APP}:${env.TAG_VERSION}"
+                 
 
             }       
         }
