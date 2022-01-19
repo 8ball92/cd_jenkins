@@ -15,13 +15,16 @@ pipeline {
             // when { expression { return env.BRANCH == 'develop'} }
             steps {
                 git branch: "${env.BRANCH}",
-                    url: 'https://github.com/8ball92/ci_cd-stack.git'
+                    url: 'https://github.com/8ball92/deploy_hello_world.git'
             
-               
-                   
             }        
                      
         }
+        stage('Doker')
+            script {
+                data = readYaml file: 'hello.yml'
+                print(data)
+            }    
     }
     post {
         always {
