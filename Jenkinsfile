@@ -5,13 +5,13 @@ pipeline {
         
 	}
     stages {
-        stage('Pull Image') {  
+        stage('pull image') {  
             steps {
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
                 sh "docker pull gblbjj/${env.APP}:${env.TAG_VERSION}"   
             }
         }
-        stage('Deploy') {
+        stage('files') {
             // when { expression { return env.BRANCH == 'develop'} }
             steps {
                 git branch: "${env.BRANCH}",
@@ -20,9 +20,9 @@ pipeline {
             }        
                      
         }
-        stage('Doker')
+        stage('deploy')
             script {
-                data = readYaml file: 'hello.yml'
+                def data = readFile(file:  'hello.yml')
                 print(data)
             }    
     }
