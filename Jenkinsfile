@@ -12,7 +12,6 @@ pipeline {
             }
         }
         stage('files') {
-            // when { expression { return env.BRANCH == 'develop'} }
             steps {
                 git branch: "${env.BRANCH}",
                     url: 'https://github.com/8ball92/deploy_hello_world.git'
@@ -22,30 +21,21 @@ pipeline {
         }
         stage('deploy') {
             steps{
-                // sh  "sed -i 's/deploy/${env.APP}:${env.TAG_VERSION}/g' hello.yml"
+                sh  "sed -i 's/deploy/${env.APP}:${env.TAG_VERSION}/g' hello.yml"
                 sh  "cat hello.yml"
-                sh  'docker stack deploy -c hello.yml mvn'
-                
+                sh  'docker stack deploy -c hello.yml mvn'   
+
             }       
-        }   
-        stage('deploy-2') {
-            steps{
-                script {
-                    def data = readFile(file:  'hello.yml')
-                    // print(data)
-                } 
-            }       
-        }     
+        }
+        
+        
     }
     post {
         always {
-            script {
-                echo "THE END JOB"
-                sh "docker rmi gblbjj/${env.APP}:${env.TAG_VERSION}"
-                
-            }
-            
             cleanWs deleteDirs: true, patterns: [[pattern: '', type: 'EXCLUDE']]
         }
+        failure {
+           echo "post failure"
+       }
     }        
 }
