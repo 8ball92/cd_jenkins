@@ -22,7 +22,7 @@ pipeline {
         }
         stage('deploy') {
             steps{
-                sh  'sed -i 's/deploy/${env.APP}:${env.TAG_VERSION}/g' hello.yml'
+                sh  "sed -i 's/deploy/${env.APP}:${env.TAG_VERSION}/g' hello.yml"
             }       
         }   
         stage('deploy-2') {
