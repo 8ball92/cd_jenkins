@@ -36,9 +36,6 @@ pipeline {
         always {
             cleanWs deleteDirs: true, patterns: [[pattern: '', type: 'EXCLUDE']]
         }
-        sucess {
-            echo "SUCESS"
-        }
         failure {
            sh "docker rmi gblbjj/${env.APP}:${env.TAG_VERSION}"
        }
