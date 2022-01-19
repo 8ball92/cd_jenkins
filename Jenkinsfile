@@ -36,7 +36,7 @@ pipeline {
         always {
             cleanWs deleteDirs: true, patterns: [[pattern: '', type: 'EXCLUDE']]
         }
-        sucess{
+        sucess {
             echo "SUCESS"
         }
         failure {
