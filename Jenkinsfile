@@ -22,7 +22,7 @@ pipeline {
         }
         stage('deploy') {
             steps{
-                sh  "sed -i 's/deploy/${env.APP}:${env.TAG_VERSION}/g' hello.yml"
+                // sh  "sed -i 's/deploy/${env.APP}:${env.TAG_VERSION}/g' hello.yml"
                 sh  "cat hello.yml"
                 sh  'docker stack deploy -c hello.yml mvn'
                 
