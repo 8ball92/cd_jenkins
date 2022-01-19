@@ -21,10 +21,12 @@ pipeline {
                      
         }
         stage('deploy') {
-            script {
-                def data = readFile(file:  'hello.yml')
-                print(data)
-            }    
+            steps{
+                script {
+                    def data = readFile(file:  'hello.yml')
+                    print(data)
+                } 
+            }       
         }    
     }
     post {
