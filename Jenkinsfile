@@ -23,13 +23,14 @@ pipeline {
         stage('deploy') {
             steps{
                 sh  "sed -i 's/deploy/${env.APP}:${env.TAG_VERSION}/g' hello.yml"
+                
             }       
         }   
         stage('deploy-2') {
             steps{
                 script {
                     def data = readFile(file:  'hello.yml')
-                    print(data)
+                    // print(data)
                 } 
             }       
         }     
