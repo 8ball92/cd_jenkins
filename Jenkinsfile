@@ -24,7 +24,7 @@ pipeline {
                 sh  "sed -i 's/deploy/${env.APP}:${env.TAG_VERSION}/g' hello.yml"
                 sh  "cat hello.yml"
                 sh  'docker stack deploy -c hello.yml mvn'  
-                sh "docker rmi gblbjj/${env.APP}:${env.TAG_VERSION}"
+                
                  
 
             }       
@@ -36,8 +36,11 @@ pipeline {
         always {
             cleanWs deleteDirs: true, patterns: [[pattern: '', type: 'EXCLUDE']]
         }
+        sucess{
+            echo "SUCESS"
+        }
         failure {
-           echo "post failure"
+           sh "docker rmi gblbjj/${env.APP}:${env.TAG_VERSION}"
        }
     }        
 }
